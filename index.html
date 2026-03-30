@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ikram Khairour - Portfolio Industriel 4.0</title>
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.5;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* Sidebar (contact) */
+        .sidebar {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .main-layout {
+                display: flex;
+                gap: 2rem;
+            }
+            .sidebar {
+                width: 280px;
+                flex-shrink: 0;
+                margin-bottom: 0;
+                position: sticky;
+                top: 1rem;
+                align-self: start;
+            }
+            .content {
+                flex: 1;
+            }
+        }
+
+        /* Profile image */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .tab-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #2c3e50;
+        }
+        .tab-btn.active {
+            background: #3498db;
+            color: white;
+            box-shadow: 0 2px 8px rgba(52,152,219,0.3);
+        }
+        .tab-pane {
+            display: none;
+            animation: fade 0.2s ease;
+        }
+        .tab-pane.active-pane {
+            display: block;
+        }
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(5px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* Cards & badges */
+        .skill-badge {
+            background: #e9ecef;
+            border-radius: 30px;
+            padding: 0.3rem 1rem;
+            display: inline-block;
+            margin: 0.2rem;
+            font-size: 0.85rem;
+            color: #2c3e50;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #3498db;
+            padding-left: 1rem;
+            color: #1e2a3a;
+        }
+        .education-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #eef2f7 100%);
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+        .progress-bar {
+            background: #ddd;
+            border-radius: 10px;
+            height: 8px;
+            width: 100%;
+            margin: 0.8rem 0;
+        }
+        .progress-fill {
+            background: #3498db;
+            width: 66%;
+            height: 8px;
+            border-radius: 10px;
+        }
+        .certif-card {
+            background: #f0f7ff;
+            border-left: 5px solid #3498db;
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .project-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .project-btn:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        .project-detail {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        button {
+            background: #3498db;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .certif-img {
+            margin-top: 1rem;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .linkedin-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #0e76a8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd;
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 600px) {
+            body { font-size: 16px; }
+            .section-title { font-size: 1.5rem; }
+            .profile-img { width: 140px; height: 140px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="main-layout">
+        <!-- SIDEBAR CONTACT -->
+        <aside class="sidebar">
+            <div style="text-align: center;">
+                <img src="photo_cv.jfif" alt="Photo de KHAIROUR IKRAM" class="profile-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=KI';">
+                <h2 style="margin: 0.5rem 0 0.2rem;">KHAIROUR IKRAM</h2>
+                <p style="color: #3498db; font-weight: 500;">Élève-ingénieur Génie Industriel</p>
+                <hr style="margin: 1rem 0;">
+                <p><i class="fas fa-envelope"></i> khairourikram2022@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i> +212 660 651592</p>
+                <p><i class="fas fa-map-marker-alt"></i> Safi, Maroc</p>
+                <a href="https://www.linkedin.com/in/ikram-khairour-198259270" target="_blank" class="linkedin-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT WITH TABS -->
+        <div class="content">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="accueil"><i class="fas fa-home"></i> Accueil</button>
+                <button class="tab-btn" data-tab="education"><i class="fas fa-graduation-cap"></i> Éducation</button>
+                <button class="tab-btn" data-tab="projets"><i class="fas fa-folder-open"></i> Projets</button>
+            </div>
+
+            <!-- PAGE ACCUEIL -->
+            <div id="accueil" class="tab-pane active-pane">
+                <div class="section-title">✨ Bienvenue sur mon Portfolio</div>
+                <h2>KHAIROUR IKRAM</h2>
+                <p>🎓 Élève-ingénieur en Génie Industriel | Spécialisation Industrie 4.0</p>
+                <hr style="margin: 1rem 0;">
+                <h3>📝 Profil</h3>
+                <p>Élève-ingénieur en Génie Industriel, spécialisée en Industrie 4.0. Passionnée par la conception, la production, le Machine Learning et l'IoT industriel. Lauréate du prix du <strong>Meilleur Dashboard Automobile 2025</strong> avec YaneCode Academy, je maîtrise la data visualisation et le développement d'applications sous VBA, outils BI, ainsi que les principes du management de qualité, de la production et de la logistique.</p>
+                
+                <h3 style="margin-top: 1.5rem;">🛠️ Compétences</h3>
+                <div>
+                    <strong>🤖 AI & Data :</strong>
+                    <span class="skill-badge">Machine Learning</span>
+                    <span class="skill-badge">Data Visualization</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">C</span>
+                </div>
+                <div style="margin-top: 0.5rem;">
+                    <strong>📊 Management & Production :</strong>
+                    <span class="skill-badge">Management Qualité</span>
+                    <span class="skill-badge">Gestion de Production</span>
+                    <span class="skill-badge">Logistique</span>
+                    <span class="skill-badge">Supply Chain</span>
+                </div>
+                <div style="margin-top: 0.5rem;">
+                    <strong>🛠️ Outils & Méthodes :</strong>
+                    <span class="skill-badge">Power BI</span>
+                    <span class="skill-badge">VBA</span>
+                    <span class="skill-badge">Catia</span>
+                    <span class="skill-badge">Streamlit</span>
+                    <span class="skill-badge">IoT Industriel</span>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <h3>🌐 Langues</h3>
+                        <p>• Arabe (Langue maternelle)<br>• Français (Courant)<br>• Anglais (Intermédiaire)</p>
+                    </div>
+                    <div>
+                        <h3>🎯 Activités parascolaires & Engagements</h3>
+                        <p>• Responsable RH - Bureau des Étudiants (BDE)<br>• Membre actif - Club Orientation<br>• IoT & Automatisation<br>• Data Visualisation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE ÉDUCATION -->
+            <div id="education" class="tab-pane">
+                <div class="section-title">📖 Parcours Académique</div>
+                <div class="education-card">
+                    <h3>📌 Cycle Ingénieur - ENSA Safi</h3>
+                    <p><strong>📅 2026 - Présent (en cours)</strong><br>
+                    📊 Durée : 3 ans - Actuellement en <strong>2ème année (2/3)</strong><br>
+                    🏫 Établissement : École Nationale des Sciences Appliquées de Safi<br>
+                    🎯 Spécialisation : Industrie 4.0, IoT, ML, Gestion de production, Qualité, Logistique</p>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                    <p style="font-size:0.85rem;">Progression: 2ème année sur 3</p>
+                </div>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <div><strong>🏛️ Cycle Préparatoire Intégré</strong><br>ENSA Safi | 2022-2024</div>
+                    <div><strong>🎓 Baccalauréat</strong><br>Sciences Physiques option française | 2022<br>Mention Très Bien</div>
+                </div>
+
+                <h3>🏅 Distinctions & Certifications</h3>
+                <div style="background:#eef2fa; padding:1rem; border-radius: 16px; margin:1rem 0;">
+                    <p><strong>🏆 Prix du Meilleur Dashboard Automobile 2025</strong> - YaneCode Academy</p>
+                    <button id="btnBestDashboard">🏅 Afficher l'attestation</button>
+                    <div id="bestDashboardImg" style="display:none; margin-top:1rem;">
+                        <img src="Capture d’écran 2026-03-30 170952.png" alt="Attestation Best Dashboard" style="max-width:100%; border-radius:12px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <p style="color:red; display:none;">Image non trouvée: placez 'Capture d’écran 2026-03-30 170952.png'</p>
+                    </div>
+                </div>
+                <div style="background:#eef2fa; padding:1rem; border-radius: 16px; margin:1rem 0;">
+                    <p><strong>📊 Certificat Data Visualization & Business Intelligence</strong> - YaneCode Academy (48h)</p>
+                    <button id="btnDataviz">📈 Afficher le certificat</button>
+                    <div id="datavizImg" style="display:none; margin-top:1rem;">
+                        <img src="Capture d’écran 2026-03-30 171128.png" alt="Certificat Data Visualization" style="max-width:100%; border-radius:12px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <p style="color:red; display:none;">Image non trouvée: placez 'Capture d’écran 2026-03-30 171128.png'</p>
+                    </div>
+                </div>
+                <div class="certif-card">
+                    <strong>📐 Certification CATIA - Conception mécanique</strong><br>
+                    Organisme : MRM-T.I.C. (Technion Génie) | 15/09/2024 au 15/12/2024<br>
+                    <button id="btnCatia">📜 Afficher le certificat</button>
+                    <div id="catiaImg" style="display:none; margin-top:1rem;">
+                        <img src="certificat_catia.jpeg" alt="Certificat CATIA" style="max-width:100%; border-radius:12px;" onerror="this.onerror=null; this.src='WhatsApp Image 2026-03-30 at 16.47.33.jpeg'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='block';};">
+                        <p style="color:red; display:none;">Image CATIA non trouvée (certificat_catia.jpeg ou WhatsApp Image)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE PROJETS -->
+            <div id="projets" class="tab-pane">
+                <div class="section-title">🚀 Mes Projets</div>
+                <p>👆 Cliquez sur un projet ci-dessous pour voir les détails</p>
+                <div class="project-grid" id="projectButtons">
+                    <!-- les boutons seront générés par JS, mais on peut les écrire en dur aussi -->
+                </div>
+                <div id="projectDetail" class="project-detail" style="display:none;"></div>
+                <div id="noProjectMsg" style="margin-top:1rem; color:#6c757d;">✨ Cliquez sur un projet pour afficher sa description.</div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        📄 PortFolio | KHAIROUR IKRAM - Élève-ingénieur Génie Industriel 4.0
+    </footer>
+</div>
+
+<script>
+    // Données des projets (identiques au Streamlit)
+    const projects = {
+        "Dashboard Automobile Power BI": {
+            icon: "🚗",
+            year: "2025",
+            tech: ["Power BI", "DAX", "Data Visualization", "ETL"],
+            description: `<strong>🏆 Projet primé - Meilleur Dashboard Automobile 2025 (YaneCode Academy)</strong><br><br>
+            <strong>Contexte :</strong> Transformer des données complexes de ventes (Car Sales) en un outil d'aide à la décision interactif.<br><br>
+            <strong>Fonctionnalités clés :</strong><br>
+            - Analyse Multi-Marques : filtrage dynamique par constructeur (Dacia, Hyundai, Peugeot, Renault, Toyota).<br>
+            - KPIs Stratégiques : suivi du CA, volume de ventes, nombre de commandes, taux de pénétration client.<br>
+            - Géolocalisation : cartographie des concessionnaires au Maroc.<br>
+            - Customer Insight : analyse de la satisfaction client par modèle.<br><br>
+            <strong>Compétences :</strong> Power BI, DAX, visualisation interactive.`
+        },
+        "Dashboard Logistique Agro-Alimentaire (Python/Streamlit)": {
+            icon: "📦",
+            year: "2025",
+            tech: ["Python", "Streamlit", "Pandas", "Matplotlib", "Seaborn"],
+            description: `<strong>Projet Data Science :</strong> Dashboard interactif de logistique et transport dédié au secteur agro-alimentaire marocain.<br><br>
+            <strong>Objectif :</strong> Optimiser la performance, réduire les coûts et renforcer la durabilité du transport.<br><br>
+            <strong>Fonctionnalités :</strong><br>
+            - Suivi des flux logistiques en temps réel<br>
+            - Analyse des KPIs (taux de livraison à temps, volumes, retards)<br>
+            - Contrôle des coûts et évaluation de l'impact environnemental (CO₂)<br>
+            - Étude des corrélations distance/délai/coût/émissions.<br><br>
+            <strong>Stack :</strong> Python (Pandas, Matplotlib, Seaborn), Streamlit.`
+        },
+        "Application Gestion Hospitalière VBA": {
+            icon: "🏥",
+            year: "2024",
+            tech: ["Excel VBA", "UserForms", "Dashboard", "Base de données"],
+            description: `<strong>Projet de fin de formation :</strong> Système complet de gestion hospitalière avec Excel VBA.<br><br>
+            <strong>Fonctionnalités :</strong><br>
+            - Gestion des patients, hospitalisations (lits, services)<br>
+            - Module pharmacie avec seuils d'alerte<br>
+            - Tableau de bord 100% dynamique.<br><br>
+            <strong>Compétences :</strong> UserForms, gestion de base de données, VBA avancé.`
+        },
+        "Stage OCP - Fiabilisation des équipements": {
+            icon: "⛏️",
+            year: "Juillet 2025",
+            tech: ["Maintenance", "Fiabilité", "Analyse de données", "Production"],
+            description: `<strong>Stage d'observation - OCP Safi (Maroc Phosphore 2)</strong><br><br>
+            <strong>Mission :</strong> Fiabilisation des équipements stratégiques des unités d'acide phosphorique.<br><br>
+            <strong>Travaux réalisés :</strong><br>
+            1. Analyse stratégique des équipements critiques.<br>
+            2. Analyse de deux pannes majeures.<br>
+            3. Étude des causes et méthodes de diagnostic.<br>
+            4. Synthèse et recommandations pour améliorer la fiabilité.<br><br>
+            <strong>Remerciements :</strong> M. DANDANE, M. SBAITI Issam, équipe Travaux Neufs.`
+        },
+        "Poubelle Intelligente - Arduino": {
+            icon: "🗑️",
+            year: "2024-2025",
+            tech: ["Arduino", "Capteurs ultrason", "Servomoteur", "C++"],
+            description: `<strong>Projet électronique :</strong> Poubelle intelligente à ouverture automatique.<br>
+            - Détection de présence par capteur ultrason<br>
+            - Ouverture/fermeture automatique du couvercle<br>
+            - Indicateur de niveau de remplissage et mode veille.<br>
+            <strong>Compétences :</strong> C++ embarqué, prototypage.`
+        },
+        "Gestion DARET Marocaine - C": {
+            icon: "💻",
+            year: "2023-2024",
+            tech: ["Langage C", "Fichiers", "Structures de données"],
+            description: `<strong>Projet informatique :</strong> Application de gestion pour les dons de la DARET marocaine.<br>
+            - Gestion des donateurs (CRUD)<br>
+            - Suivi des dons, génération de rapports<br>
+            - Authentification et persistance via fichiers binaires.<br>
+            <strong>Note :</strong> 18/20.`
+        }
+    };
+
+    // Génération des boutons projets
+    const projectGrid = document.getElementById('projectButtons');
+    const projectDetailDiv = document.getElementById('projectDetail');
+    const noProjectMsg = document.getElementById('noProjectMsg');
+
+    function displayProject(projectName) {
+        const p = projects[projectName];
+        if (p) {
+            projectDetailDiv.innerHTML = `
+                <h2>${p.icon} ${projectName}</h2>
+                <p><strong>📅 Année :</strong> ${p.year}</p>
+                <p><strong>🛠️ Technologies :</strong> ${p.tech.join(', ')}</p>
+                <hr>
+                ${p.description}
+                <button id="clearProjectBtn" style="margin-top:1rem;">🗑️ Effacer la sélection</button>
+            `;
+            projectDetailDiv.style.display = 'block';
+            noProjectMsg.style.display = 'none';
+            document.getElementById('clearProjectBtn').addEventListener('click', () => {
+                projectDetailDiv.style.display = 'none';
+                noProjectMsg.style.display = 'block';
+            });
+        }
+    }
+
+    for (let [name, data] of Object.entries(projects)) {
+        const btn = document.createElement('button');
+        btn.className = 'project-btn';
+        btn.innerHTML = `${data.icon} ${name}`;
+        btn.addEventListener('click', () => displayProject(name));
+        projectGrid.appendChild(btn);
+    }
+
+    // Gestion des onglets
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panes = document.querySelectorAll('.tab-pane');
+    tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            tabs.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            panes.forEach(pane => {
+                pane.classList.remove('active-pane');
+                if (pane.id === tabId) pane.classList.add('active-pane');
+            });
+        });
+    });
+
+    // Gestion des affichages de certificats (toggle)
+    const btnBest = document.getElementById('btnBestDashboard');
+    const bestImgDiv = document.getElementById('bestDashboardImg');
+    if (btnBest) btnBest.addEventListener('click', () => {
+        bestImgDiv.style.display = bestImgDiv.style.display === 'none' ? 'block' : 'none';
+    });
+    const btnData = document.getElementById('btnDataviz');
+    const dataImgDiv = document.getElementById('datavizImg');
+    if (btnData) btnData.addEventListener('click', () => {
+        dataImgDiv.style.display = dataImgDiv.style.display === 'none' ? 'block' : 'none';
+    });
+    const btnCat = document.getElementById('btnCatia');
+    const catiaImgDiv = document.getElementById('catiaImg');
+    if (btnCat) btnCat.addEventListener('click', () => {
+        catiaImgDiv.style.display = catiaImgDiv.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Gestion des erreurs d'images : un petit message si l'image manque
+    function handleMissingImages() {
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach(img => {
+            img.onerror = function() {
+                const parent = this.parentElement;
+                const msg = document.createElement('p');
+                msg.style.color = 'red';
+                msg.innerText = 'Image introuvable. Veuillez placer le fichier requis.';
+                if (parent && !parent.querySelector('.img-error-msg')) {
+                    msg.className = 'img-error-msg';
+                    parent.appendChild(msg);
+                }
+                this.style.display = 'none';
+            };
+        });
+    }
+    handleMissingImages();
+</script>
+</body>
+</html>

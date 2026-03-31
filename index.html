@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Ikram Khairour - Portfolio Industriel 4.0</title>
-    <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -12,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7fc;
@@ -20,14 +18,12 @@
             line-height: 1.5;
             font-size: 18px;
         }
-
         .container {
             max-width: 1300px;
             margin: 0 auto;
             padding: 1.5rem;
         }
-
-        /* Sidebar (contact) */
+        /* Sidebar */
         .sidebar {
             background: white;
             border-radius: 20px;
@@ -35,7 +31,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             margin-bottom: 1.5rem;
         }
-
         @media (min-width: 768px) {
             .main-layout {
                 display: flex;
@@ -53,8 +48,6 @@
                 flex: 1;
             }
         }
-
-        /* Profile image */
         .profile-img {
             width: 200px;
             height: 200px;
@@ -64,7 +57,6 @@
             margin-bottom: 1rem;
             box-shadow: 0 6px 14px rgba(0,0,0,0.1);
         }
-
         /* Tabs */
         .tabs {
             display: flex;
@@ -104,8 +96,6 @@
             from { opacity: 0; transform: translateY(5px);}
             to { opacity: 1; transform: translateY(0);}
         }
-
-        /* Cards & badges */
         .skill-badge {
             background: #e9ecef;
             border-radius: 30px;
@@ -155,7 +145,6 @@
             gap: 1rem;
             margin: 1.5rem 0;
         }
-        /* STYLE MODIFIÉ : texte des boutons projets en noir */
         .project-btn {
             background: white;
             border: 1px solid #ddd;
@@ -167,7 +156,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #1e2a3a;  /* noir foncé */
+            color: #1e2a3a;
         }
         .project-btn:hover {
             background: #3498db;
@@ -181,7 +170,6 @@
             margin-top: 1.5rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
-        /* Titre du projet dans le détail : noir */
         .project-detail h2 {
             color: #1e2a3a;
             margin-bottom: 0.5rem;
@@ -195,12 +183,6 @@
             cursor: pointer;
             font-size: 0.9rem;
             margin-top: 0.5rem;
-        }
-        .certif-img {
-            margin-top: 1rem;
-            max-width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .linkedin-link {
             display: inline-block;
@@ -222,6 +204,34 @@
             .section-title { font-size: 1.5rem; }
             .profile-img { width: 140px; height: 140px; }
         }
+        .timeline-item {
+            margin-bottom: 1rem;
+        }
+        /* Barre des métriques */
+        .metrics-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .metric-card {
+            background: #f1f5f9;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .metric-card strong {
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .metric-card small {
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -241,7 +251,7 @@
             </div>
         </aside>
 
-        <!-- MAIN CONTENT WITH TABS -->
+        <!-- MAIN CONTENT -->
         <div class="content">
             <div class="tabs">
                 <button class="tab-btn active" data-tab="accueil"><i class="fas fa-home"></i> Accueil</button>
@@ -251,7 +261,7 @@
 
             <!-- PAGE ACCUEIL -->
             <div id="accueil" class="tab-pane active-pane">
-                <div class="section-title">✨ Bienvenue sur mon Portfolio</div>
+                <div class="section-title">✨ Bienvenue sur mon Portfolio interactif</div>
                 <h2>KHAIROUR IKRAM</h2>
                 <p>🎓 Élève-ingénieur en Génie Industriel | Spécialisation Industrie 4.0</p>
                 <hr style="margin: 1rem 0;">
@@ -288,8 +298,8 @@
                         <p>• Arabe (Langue maternelle)<br>• Français (Courant)<br>• Anglais (Intermédiaire)</p>
                     </div>
                     <div>
-                        <h3>🎯 Activités parascolaires & Engagements</h3>
-                        <p>• Responsable RH - Bureau des Étudiants (BDE)<br>• Membre actif - Club Orientation<br>• IoT & Automatisation<br>• Data Visualisation</p>
+                        <h3>🎯 Activités parascolaires</h3>
+                        <p>• Responsable RH - Bureau des Étudiants (BDE)<br>• Membre actif - Club Orientation</p>
                     </div>
                 </div>
             </div>
@@ -300,9 +310,9 @@
                 <div class="education-card">
                     <h3>📌 Cycle Ingénieur - ENSA Safi</h3>
                     <p><strong>📅 2026 - Présent (en cours)</strong><br>
-                    📊 Durée : 3 ans - Actuellement en <strong>2ème année (2/3)</strong><br>
+                    📊 Durée : 3 ans - Actuellement en <strong>2ème année cycle ingénieur (2/3)</strong><br>
                     🏫 Établissement : École Nationale des Sciences Appliquées de Safi<br>
-                    🎯 Spécialisation : Industrie 4.0, IoT, ML, Gestion de production, Qualité, Logistique</p>
+                    🎯 Spécialisation : Industrie 4.0, IoT industriel, Machine Learning, Gestion de production, Management qualité, Logistique</p>
                     <div class="progress-bar"><div class="progress-fill"></div></div>
                     <p style="font-size:0.85rem;">Progression: 2ème année sur 3</p>
                 </div>
@@ -314,7 +324,7 @@
                 <h3>🏅 Distinctions & Certifications</h3>
                 <div style="background:#eef2fa; padding:1rem; border-radius: 16px; margin:1rem 0;">
                     <p><strong>🏆 Prix du Meilleur Dashboard Automobile 2025</strong> - YaneCode Academy</p>
-                    <button id="btnBestDashboard">🏅 Afficher l'attestation</button>
+                    <button id="btnBestDashboard">🏅 Afficher l'attestation du Prix</button>
                     <div id="bestDashboardImg" style="display:none; margin-top:1rem;">
                         <img src="Capture d’écran 2026-03-30 170952.png" alt="Attestation Best Dashboard" style="max-width:100%; border-radius:12px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <p style="color:red; display:none;">Image non trouvée: placez 'Capture d’écran 2026-03-30 170952.png'</p>
@@ -322,7 +332,7 @@
                 </div>
                 <div style="background:#eef2fa; padding:1rem; border-radius: 16px; margin:1rem 0;">
                     <p><strong>📊 Certificat Data Visualization & Business Intelligence</strong> - YaneCode Academy (48h)</p>
-                    <button id="btnDataviz">📈 Afficher le certificat</button>
+                    <button id="btnDataviz">📈 Afficher le certificat Data Visualization</button>
                     <div id="datavizImg" style="display:none; margin-top:1rem;">
                         <img src="Capture d’écran 2026-03-30 171128.png" alt="Certificat Data Visualization" style="max-width:100%; border-radius:12px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <p style="color:red; display:none;">Image non trouvée: placez 'Capture d’écran 2026-03-30 171128.png'</p>
@@ -330,10 +340,11 @@
                 </div>
                 <div class="certif-card">
                     <strong>📐 Certification CATIA - Conception mécanique</strong><br>
-                    Organisme : MRM-T.I.C. (Technion Génie) | 15/09/2024 au 15/12/2024<br>
-                    <button id="btnCatia">📜 Afficher le certificat</button>
+                    Organisme : MRM-T.I.C. (Technion Génie)<br>
+                    Période : 15/09/2024 au 15/12/2024<br>
+                    <button id="btnCatia">📜 Afficher le certificat CATIA</button>
                     <div id="catiaImg" style="display:none; margin-top:1rem;">
-                        <img src="certificat_catia.jpeg" alt="Certificat CATIA" style="max-width:100%; border-radius:12px;" onerror="this.onerror=null; this.src='WhatsApp Image 2026-03-30 at 16.47.33.jpeg'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='block';};">
+                        <img src="WhatsApp Image 2026-03-30 at 16.47.33.jpeg" alt="Certificat CATIA" style="max-width:100%; border-radius:12px;" onerror="this.onerror=null; this.src='WhatsApp Image 2026-03-30 at 16.47.33.jpeg'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='block';};">
                         <p style="color:red; display:none;">Image CATIA non trouvée (certificat_catia.jpeg ou WhatsApp Image)</p>
                     </div>
                 </div>
@@ -342,12 +353,29 @@
             <!-- PAGE PROJETS -->
             <div id="projets" class="tab-pane">
                 <div class="section-title">🚀 Mes Projets</div>
-                <p>👆 Cliquez sur un projet ci-dessous pour voir les détails</p>
-                <div class="project-grid" id="projectButtons">
-                    <!-- les boutons seront générés par JS -->
-                </div>
+                <p>👆 <strong>Cliquez sur un projet ci-dessous pour voir sa description détaillée</strong></p>
+                <div class="project-grid" id="projectButtons"></div>
                 <div id="projectDetail" class="project-detail" style="display:none;"></div>
-                <div id="noProjectMsg" style="margin-top:1rem; color:#6c757d;">✨ Cliquez sur un projet pour afficher sa description.</div>
+                <div id="noProjectMsg" style="margin-top:1rem; color:#6c757d;">✨ Cliquez sur l'un des projets ci-dessus pour afficher tous les détails.</div>
+
+                <!-- Ajout de la barre des faits marquants -->
+                <div class="metrics-row">
+                    <div class="metric-card">
+                        <strong>🏆 Prix remporté</strong>
+                        1
+                        <small>Meilleur Dashboard</small>
+                    </div>
+                    <div class="metric-card">
+                        <strong>📱 Projets réalisés</strong>
+                        6
+                        <small>Dont 3 majeurs</small>
+                    </div>
+                    <div class="metric-card">
+                        <strong>💻 Technologies utilisées</strong>
+                        12+
+                        <small>Python, VBA, Power BI, etc.</small>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -357,77 +385,103 @@
 </div>
 
 <script>
-    // Données des projets (identiques)
+    // Projets exacts comme dans le code Streamlit
     const projects = {
         "Dashboard Automobile Power BI": {
             icon: "🚗",
             year: "2025",
             tech: ["Power BI", "DAX", "Data Visualization", "ETL"],
-            description: `<strong>🏆 Projet primé - Meilleur Dashboard Automobile 2025 (YaneCode Academy)</strong><br><br>
-            <strong>Contexte :</strong> Transformer des données complexes de ventes (Car Sales) en un outil d'aide à la décision interactif.<br><br>
-            <strong>Fonctionnalités clés :</strong><br>
-            - Analyse Multi-Marques : filtrage dynamique par constructeur (Dacia, Hyundai, Peugeot, Renault, Toyota).<br>
-            - KPIs Stratégiques : suivi du CA, volume de ventes, nombre de commandes, taux de pénétration client.<br>
-            - Géolocalisation : cartographie des concessionnaires au Maroc.<br>
-            - Customer Insight : analyse de la satisfaction client par modèle.<br><br>
-            <strong>Compétences :</strong> Power BI, DAX, visualisation interactive.`
+            description: `🏆 Projet primé - Meilleur Dashboard Automobile 2025 (YaneCode Academy)
+
+Contexte : Transformer des données complexes de ventes (Car Sales) en un outil d'aide à la décision interactif.
+
+Fonctionnalités clés :
+- Analyse Multi-Marques : Filtrage dynamique par constructeur (Dacia, Hyundai, Peugeot, Renault, Toyota).
+- KPIs Stratégiques : Suivi du Chiffre d'Affaires (CA), volume de ventes, nombre de commandes, taux de pénétration client.
+- Géolocalisation : Cartographie précise des concessionnaires au Maroc.
+- Customer Insight : Analyse de la satisfaction client par modèle pour orienter les stratégies marketing.
+
+Compétences mobilisées : Power BI, modélisation de données, DAX, visualisation interactive.`
         },
         "Dashboard Logistique Agro-Alimentaire (Python/Streamlit)": {
             icon: "📦",
             year: "2025",
             tech: ["Python", "Streamlit", "Pandas", "Matplotlib", "Seaborn"],
-            description: `<strong>Projet Data Science :</strong> Dashboard interactif de logistique et transport dédié au secteur agro-alimentaire marocain.<br><br>
-            <strong>Objectif :</strong> Optimiser la performance, réduire les coûts et renforcer la durabilité du transport.<br><br>
-            <strong>Fonctionnalités :</strong><br>
-            - Suivi des flux logistiques en temps réel<br>
-            - Analyse des KPIs (taux de livraison à temps, volumes, retards)<br>
-            - Contrôle des coûts et évaluation de l'impact environnemental (CO₂)<br>
-            - Étude des corrélations distance/délai/coût/émissions.<br><br>
-            <strong>Stack :</strong> Python (Pandas, Matplotlib, Seaborn), Streamlit.`
+            description: `Projet Data Science : Dashboard interactif de logistique et transport dédié au secteur agro-alimentaire marocain (produits laitiers, viandes, agrumes, primeurs, jus de fruits, exportations).
+
+Objectif : Transformer les données logistiques brutes en informations stratégiques pour optimiser la performance, réduire les coûts et renforcer la durabilité du transport.
+
+Fonctionnalités :
+- Suivi des flux logistiques en temps réel
+- Analyse des KPIs : taux de livraison à temps, volumes transportés, retards moyens
+- Contrôle des coûts de transport (postes les plus coûteux, zones à forte dépense énergétique)
+- Évaluation de l'impact environnemental (émissions CO₂, consommation carburant)
+- Étude des corrélations distance/délai/coût/émissions/efficacité énergétique
+
+Stack technique : Python (Pandas, Matplotlib, Seaborn), Streamlit pour l'interface interactive.
+
+Impact : Démonstration de comment la Data Science peut rendre la logistique agro-alimentaire plus efficace, durable et compétitive au Maroc.`
         },
         "Application Gestion Hospitalière VBA": {
             icon: "🏥",
             year: "2024",
             tech: ["Excel VBA", "UserForms", "Dashboard", "Base de données"],
-            description: `<strong>Projet de fin de formation :</strong> Système complet de gestion hospitalière avec Excel VBA.<br><br>
-            <strong>Fonctionnalités :</strong><br>
-            - Gestion des patients, hospitalisations (lits, services)<br>
-            - Module pharmacie avec seuils d'alerte<br>
-            - Tableau de bord 100% dynamique.<br><br>
-            <strong>Compétences :</strong> UserForms, gestion de base de données, VBA avancé.`
+            description: `Projet de fin de formation : Système complet de gestion hospitalière développé avec Excel VBA.
+
+Ce que l'application gère :
+- Flux Patients : Enregistrement complet (identité, contact d'urgence, assurance).
+- Gestion des Hospitalisations : Attribution des lits, services et suivi des mouvements.
+- Module Pharmacie : Saisie des stocks, prix et gestion automatique des seuils d'alerte.
+- Tableau de Bord 100% Dynamique : Visualisation en temps réel des statistiques au fur et à mesure des saisies.
+
+Compétences techniques : Création de formulaires (UserForms) intelligents, gestion robuste de base de données, intégrité des données.
+
+Remerciements : Formateur Jamal ET-TOUSY et YaneCode Academy pour l'accompagnement.`
         },
         "Stage OCP - Fiabilisation des équipements": {
             icon: "⛏️",
             year: "Juillet 2025",
             tech: ["Maintenance", "Fiabilité", "Analyse de données", "Production"],
-            description: `<strong>Stage d'observation - OCP Safi (Maroc Phosphore 2)</strong><br><br>
-            <strong>Mission :</strong> Fiabilisation des équipements stratégiques des unités d'acide phosphorique.<br><br>
-            <strong>Travaux réalisés :</strong><br>
-            1. Analyse stratégique des équipements critiques.<br>
-            2. Analyse de deux pannes majeures.<br>
-            3. Étude des causes et méthodes de diagnostic.<br>
-            4. Synthèse et recommandations pour améliorer la fiabilité.<br><br>
-            <strong>Remerciements :</strong> M. DANDANE, M. SBAITI Issam, équipe Travaux Neufs.`
+            description: `Stage d'observation au sein du service Travaux Neufs de l'OCP Safi (Maroc Phosphore 2).
+
+Mission : Fiabilisation des équipements stratégiques des unités de production d'acide phosphorique.
+
+Travaux réalisés :
+1. Analyse stratégique des équipements critiques de la ligne phosphorique.
+2. Analyse de deux pannes majeures ayant affecté la ligne (impacts, mécanismes).
+3. Étude approfondie des causes des défaillances (méthodes d'investigation et diagnostic).
+4. Synthèse sur la maintenance appliquée à une catégorie d'équipements spécifiques, avec recommandations pour améliorer la fiabilité et optimiser les performances.
+
+Compétences développées : Observation terrain, analyse de fiabilité, maintenance préventive.
+
+Remerciements :Équipe Travaux Neufs, M. DANDANE (encadrant), M. SBAITI Issam pour son accompagnement.`
         },
         "Poubelle Intelligente - Arduino": {
             icon: "🗑️",
             year: "2024-2025",
-            tech: ["Arduino", "Capteurs ultrason", "Servomoteur", "C++"],
-            description: `<strong>Projet électronique :</strong> Poubelle intelligente à ouverture automatique.<br>
-            - Détection de présence par capteur ultrason<br>
-            - Ouverture/fermeture automatique du couvercle<br>
-            - Indicateur de niveau de remplissage et mode veille.<br>
-            <strong>Compétences :</strong> C++ embarqué, prototypage.`
+            tech: ["Arduino", "Capteurs ultrason", "Servomoteur"],
+            description: `Projet électronique : Réalisation d'une poubelle intelligente à ouverture automatique.
+
+  Fonctionnalités :
+- Détection de présence par capteur ultrason
+- Ouverture/fermeture automatique du couvercle
+- Indicateur de niveau de remplissage
+- Optimisation énergétique (mode veille)
+
+**Compétences :** Prototypage, gestion de capteurs.`
         },
         "Gestion DARET Marocaine - C": {
             icon: "💻",
             year: "2023-2024",
             tech: ["Langage C", "Fichiers", "Structures de données"],
-            description: `<strong>Projet informatique :</strong> Application de gestion pour les dons de la DARET marocaine.<br>
-            - Gestion des donateurs (CRUD)<br>
-            - Suivi des dons, génération de rapports<br>
-            - Authentification et persistance via fichiers binaires.<br>
-            <strong>Note :</strong> 18/20.`
+            description: `Projet informatique : Application de gestion pour les dons de la DARET marocaine.
+
+   Fonctionnalités :
+- Gestion des donateurs (ajout, modification, suppression)
+- Suivi des dons financiers et matériels
+- Génération de rapports statistiques
+- Système d'authentification sécurisé
+- Persistance des données via fichiers binaires`
         }
     };
 
@@ -444,7 +498,7 @@
                 <p><strong>📅 Année :</strong> ${p.year}</p>
                 <p><strong>🛠️ Technologies :</strong> ${p.tech.join(', ')}</p>
                 <hr>
-                ${p.description}
+                ${p.description.replace(/\n/g, '<br>')}
                 <button id="clearProjectBtn" style="margin-top:1rem;">🗑️ Effacer la sélection</button>
             `;
             projectDetailDiv.style.display = 'block';
@@ -479,7 +533,7 @@
         });
     });
 
-    // Gestion des affichages de certificats
+    // Gestion des certificats (toggle)
     const btnBest = document.getElementById('btnBestDashboard');
     const bestImgDiv = document.getElementById('bestDashboardImg');
     if (btnBest) btnBest.addEventListener('click', () => {
